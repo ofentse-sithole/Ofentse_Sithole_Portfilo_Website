@@ -1,37 +1,90 @@
-/*Navbar*/
+/* Navbar Styles */
 .navbar {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 20px;
-    background-color: #fff;
-    border-bottom: 1px solid #ddd;
-  }
-  
-  .navbar-brand {
-    font-size: 1.5em;
-    font-weight: bold;
-  }
-  
-  .navbar-links {
-    display: flex;
-    list-style: none;
-  }
-  
-  .navbar-links li {
-    margin-left: 20px;
-  }
-  
-  .navbar-links a {
-    text-decoration: none;
-    color: #333;
-    font-size: 1em;
-  }
-  
-  .navbar-links a:hover {
-    color: #555;
-  }
+    padding: 25px 20px;
+    background-color: #333;
+    color: #fff;
+    position: relative;
+}
 
+/* Navbar Brand */
+.navbar-brand {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+/* Menu Toggle Button */
+.menu-toggle {
+    display: none;
+    background-color: #444;
+    color: #fff;
+    border: none;
+    padding: 10px;
+    font-size: 18px;
+    cursor: pointer;
+    border-radius: 5px;
+    position: relative;
+}
+
+/* Navbar Links */
+.navbar-links {
+    list-style: none;
+    display: flex;
+    gap: 15px;
+}
+
+.navbar-links li {
+    margin: 0;
+}
+
+.navbar-links a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 16px;
+}
+
+/* Mobile View */
+@media (max-width: 768px) {
+    .menu-toggle {
+        display: block;
+        /* Make visible on smaller screens */
+        position: absolute;
+        right: 20px;
+        top: 15px;
+    }
+
+    .navbar-links {
+        position: absolute;
+        top: 60px;
+        /* Below the navbar */
+        right: 0;
+        background-color: #444;
+        width: 200px;
+        flex-direction: column;
+        border-radius: 5px;
+        overflow: hidden;
+        display: none;
+        opacity: 0;
+        transform: translateY(-20px);
+        transition: opacity 0.3s ease, transform 0.3s ease;
+    }
+
+    .navbar-links.show {
+        display: flex;
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    .navbar-links li {
+        padding: 10px 15px;
+    }
+
+    .navbar-links a {
+        font-size: 18px;
+    }
+}
 /* Profile Section */
 .profile-section {
     display: flex;
@@ -184,6 +237,38 @@
     color: #666;
 }
 
+/* Media Query for Mobile */
+@media (max-width: 768px) {
+    .profile-section {
+        padding: 15px;
+    }
+
+    .profile-section .picture img {
+        width: 120px;
+        height: 120px;
+    }
+
+    .profile-info h1 {
+        font-size: 20px;
+    }
+
+    .profile-info h2 {
+        font-size: 16px;
+    }
+
+    .cv-button,
+    .contact-button {
+        width: 100%;
+        /* Buttons take full width on mobile */
+        text-align: center;
+    }
+
+    .modal-content {
+        width: 95%;
+        /* Reduce modal width on mobile */
+    }
+}
+
 /* Description */
 .about-description {
     max-width: 600px;
@@ -235,6 +320,20 @@
     margin-bottom: 15px;
 }
 
+/* Media Query for Mobile */
+@media (max-width: 768px) {
+    .about-info {
+        flex-direction: column;
+        /* Stack boxes vertically */
+    }
+
+    .info-box {
+        width: 100%;
+        /* Take full width */
+        max-width: none;
+    }
+}
+
 /* Skill Item */
 .skill {
     display: flex;
@@ -259,53 +358,137 @@
     color: #666;
 }
 
+/* Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
-/* Projects Section */
+/* Common styles for both desktop and mobile */
 .projects-section {
     text-align: center;
+    background-color: #f9f9f9;
     padding: 50px 20px;
-    font-family: Arial, sans-serif;
 }
 
 .projects-section p {
+    font-size: 16px;
     color: #666;
-    font-size: 18px;
+    margin-top: 20px;
 }
 
 .projects-section h1 {
-    font-size: 36px;
-    margin-top: 5px;
+    font-size: 32px;
+    color: #333;
+    margin-bottom: 20px;
 }
 
-/* Projects Container */
-.projects-container {
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-    flex-wrap: wrap;
-    margin-top: 30px;
+/* Desktop styles */
+@media (min-width: 769px) {
+    .projects-container {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 30px;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 20px;
+    }
+
+    .project-card {
+        background: #fff;
+        border-radius: 10px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        padding: 20px;
+        transition: transform 0.3s ease;
+    }
+
+    .project-card:hover {
+        transform: translateY(-5px);
+    }
+
+    .slider-arrow {
+        display: none;
+    }
 }
 
-/* Project Card */
-.project-card {
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    width: 250px;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-    padding: 20px;
-    text-align: center;
-    background-color: #fff;
-}
+/* Mobile styles */
+@media (max-width: 768px) {
+    .projects-section {
+        padding: 20px 0;
+    }
 
+    .projects-slider {
+        position: relative;
+        width: 100%;
+        height: 100vh;
+        overflow: hidden;
+    }
+
+    .projects-container {
+        display: flex;
+        flex-wrap: nowrap;
+        transition: transform 0.5s ease-in-out;
+    }
+
+    .project-card {
+        min-width: 100%;
+        flex-shrink: 0;
+        height: 100vh;
+        padding: 20px;
+        background: #fff;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+/* Common project card styles */
 .project-card img {
-    width: 100%;
+    max-width: 100%;
     height: auto;
-    border-radius: 8px;
+    border-radius: 5px;
+    margin-bottom: 15px;
 }
 
 .project-card h3 {
-    font-size: 20px;
-    margin: 15px 0 10px;
+    font-size: 24px;
+    color: #333;
+    margin: 15px 0;
+}
+
+.project-card p {
+    font-size: 16px;
+    color: #666;
+    line-height: 1.6;
+    margin: 15px 0;
+}
+
+    .slider-arrow {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 40px;
+        height: 40px;
+        background: rgba(0, 0, 0, 0.6);
+        color: white;
+        border: none;
+        border-radius: 50%;
+        font-size: 20px;
+        cursor: pointer;
+        z-index: 1000;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .left-arrow {
+        left: 10px;
+    }
+
+    .right-arrow {
+        right: 10px;
+    }
 }
 
 /* Buttons */
@@ -329,74 +512,6 @@
     background-color: #ddd;
 }
 
-/* Timeline section styling */
-.timeline {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    position: relative;
-}
-
-/* Vertical line */
-.timeline::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    width: 2px;
-    background-color: #4fa1ff;
-}
-
-/* Timeline item styling */
-.timeline-item {
-    position: relative;
-    width: 45%; /* Adjust width if necessary */
-    background-color: rgba(0, 0, 0, 0.7);
-    color: white;
-    padding: 20px;
-    margin: 20px 0;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-}
-
-/* Dot style */
-.timeline-item::before {
-    content: '';
-    position: absolute;
-    width: 12px;
-    height: 12px;
-    background-color: #4fa1ff;
-    border-radius: 50%;
-}
-
-/* Position the timeline items alternately */
-.timeline-item:nth-child(odd) {
-    align-self: flex-start;
-    transform: translateX(-10%); /* Move to the left */
-}
-
-.timeline-item:nth-child(even) {
-    align-self: flex-end;
-    transform: translateX(10%); /* Move to the right */
-}
-
-/* Dot positioning */
-.timeline-item:nth-child(odd)::before {
-    left: -60px;
-    top: 20px;
-}
-
-.timeline-item:nth-child(even)::before {
-    right: -20px;
-    top: 20px;
-}
-
-/* Headings for each timeline item */
-.timeline-item h2 {
-    font-size: 1.2em;
-    margin-bottom: 10px;
-    color: #fff;
-}
 
 
 
@@ -546,4 +661,100 @@ body {
 
 .contact-right button:hover {
     background-color: #555;
+}
+
+
+/*POP UP CONTACT DETAILS*/
+/* Modal Styles */
+.contact-info-modal {
+    display: none;  /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0, 0, 0); /* Fallback color */
+    background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
+    padding-top: 60px;
+}
+
+/* Modal Content */
+.modal-content {
+    background-color: #fff;
+    margin: 5% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    max-width: 400px;
+    border-radius: 8px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Close Button */
+.close {
+    color: #aaa;
+    font-size: 28px;
+    font-weight: bold;
+    position: absolute;
+    top: 10px;
+    right: 15px;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* Contact Info styling */
+.modal-content h2 {
+    margin-bottom: 20px;
+}
+
+.modal-content p {
+    margin: 10px 0;
+}
+
+.modal-content a {
+    color: #0975f1;
+    text-decoration: none;
+}
+
+.modal-content a:hover {
+    text-decoration: underline;
+}
+
+
+/* Media Queries */
+@media (max-width: 768px) {
+    .contact-section {
+        flex-direction: column;
+        /* Stack the sections vertically */
+        align-items: center;
+    }
+
+    .contact-left,
+    .contact-right {
+        width: 100%;
+        /* Full width on mobile */
+    }
+
+    .contact-header h1 {
+        font-size: 28px;
+    }
+
+    .contact-header p {
+        font-size: 14px;
+    }
+
+    form {
+        width: 100%;
+    }
+
+    button {
+        font-size: 14px;
+    }
 }

@@ -8,16 +8,21 @@
 </head>
 <body>
 
-    <!-- Navbar -->
-    <nav class="navbar">
-        <div class="navbar-brand">Ofentse Terence Sithole</div>
-        <ul class="navbar-links">
-          <li><a href="#about">About</a></li>
-          <li><a href="#experience">Experience</a></li>
-          <li><a href="#projects">Projects</a></li>
-          <li><a href="#contact">Contact</a></li>
-        </ul>
-      </nav>
+<!-- Navbar -->
+<nav class="navbar">
+    <div class="navbar-brand">
+        Ofentse Terence Sithole
+        <button class="menu-toggle" onclick="toggleMenu()">☰</button>
+    </div>
+    <ul class="navbar-links" id="navbarLinks">
+        <li><a href="#about">About</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#contact">Contact</a></li>
+    </ul>
+</nav>
+
+
 
     <!-- Profile Section -->
 <div class="profile-section">
@@ -33,10 +38,43 @@
         <h2>Junior Software Developer</h2>
 
         <!-- Buttons for CV download and contact info -->
-        <div class="button-group">
-            <button class="cv-button">Download CV</button>
-            <button class="contact-button">Contact Info</button>
+            <div class="button-group">
+                <a href="cv/Ofentse-Terence-Sithole-CV.pdf" class="cv-button" download>
+                    Download CV
+                </a>
+                <button class="contact-button" onclick="showContactInfo()">Contact Info</button>
+            </div>
+
+        <!-- Modal for Contact Info -->
+        <div id="contact-info-modal" class="contact-info-modal">
+            <div class="modal-content">
+                <span class="close" onclick="closeModal()">&times;</span>
+                <h2>Contact Information</h2>
+                <p><strong>Email:</strong> <a href="mailto:otsithole07@gmail.com">otsithole07@gmail.com</a></p>
+                <p><strong>Phone:</strong> <a href="tel:0723430281">+27 72 343 0281</a></p>
+                <p><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/ofentse-sithole-145943264/" target="_blank">LinkedIn Profile</a></p>
+            </div>
         </div>
+
+        <script>
+            // Function to show the modal
+            function showContactInfo() {
+                document.getElementById("contact-info-modal").style.display = "block";
+            }
+        
+            // Function to close the modal
+            function closeModal() {
+                document.getElementById("contact-info-modal").style.display = "none";
+            }
+        
+            // Close modal if the user clicks outside the modal content
+            window.onclick = function(event) {
+                if (event.target == document.getElementById("contact-info-modal")) {
+                    closeModal();
+                }
+            }
+        </script>
+        
 
         <!-- Social Icons -->
         <div id="social-icons" class="social-icons">
@@ -61,14 +99,14 @@
         <div class="about-content">
             <!-- Profile Image -->
             <div class="about-image">
-                <img src="img/img_2.jpeg" alt="Profile Picture" />
+                <img src="img/img.jpeg" alt="Profile Picture" />
             </div>
 
             <!-- Experience and Education Info -->
             <div class="about-info">
                 <div class="info-box">
                     <h3>Experience</h3>
-                    <p>No Experience</p>
+                    <p>Not Applicable</p>
                 </div>
                 <div class="info-box">
                     <h3>Education</h3>
@@ -119,14 +157,6 @@
                         <span>Basic</span>
                     </div>
                 </div>
-
-                <div class="skill">
-                    <i class="fas fa-palette"></i>
-                    <div>
-                        <p>Material UI</p>
-                        <span>Intermediate</span>
-                    </div>
-                </div>
             </div>
 
             <!-- Backend Development Skills -->
@@ -172,9 +202,10 @@
                     </div>
                 </div>
                 <div class="skill">
-                    <i class="fas fa-server"></i>
+                    <img src="img/icons8-kotlin-48.png" width="35" height="35">
                     <div>
-                        <p>Express JS</p>
+                        
+                        <p>Kotlin</p>
                         <span>Intermediate</span>
                     </div>
                 </div>
@@ -192,92 +223,106 @@
     <section id="projects" class="projects-section">
         <p>Projects</p>
         <h1>Projects</h1>
-        <div class="projects-container">
-            <!-- Project Card 1 -->
-            <div class="project-card">
-                <img src="img/projects_images/averyquestlogo.png" alt="Project One">
-                <h3>AvairyQuest</h3>
-                <p>
-                    A birding app that utilizes the eBird API to 
-                    display bird hotspots and allows users to document 
-                    their own bird sightings. Users can also capture 
-                    or upload pictures of the birds they encounter 
-                    and access additional research information about them.
-                </p>
-                <div class="buttons">
-                    <a href="https://github.com/ofentse-sithole/AviaryQuest" class="btn"  class="social-icon" target="_blank">
-                        <i class="fab fa-github-square" style="color: #070707;"></i> </a>
+        <div class="projects-slider">
+            <div class="projects-container">
+                <!-- Project Cards -->
+                <div class="project-card">
+                    <img src="img/projects_images/averyquestlogo.png" alt="Project One">
+                    <h3>AvairyQuest</h3>
+                    <p>
+                        A birding app that utilizes the eBird API to
+                        display bird hotspots and allows users to document
+                        their own bird sightings. Users can also capture
+                        or upload pictures of the birds they encounter
+                        and access additional research information about them.
+                    </p>
+                    <div class="buttons">
+                        <a href="https://github.com/ofentse-sithole/AviaryQuest" class="social-icon" target="_blank">
+                            <i class="fab fa-github-square" style="color: #070707;"></i>
+                        </a>
+                    </div>
                 </div>
-            </div>
+    
+                <!-- Repeat other project cards here -->
+                <div class="project-card">
+                    <img src="img/projects_images/GreenLife_Tracker_Logo.png" alt="Project Two">
+                    <h3>GreenLife Tracker</h3>
+                    <p>
+                        Your go-to platform for a healthier lifestyle and eco-friendly
+                        living. Monitor and reduce your carbon footprint
+                        effortlessly. Personalized nutrition tips and a diverse
+                        range of workouts for your fitness journey.
+                    </p>
+                    <div class="buttons">
+                        <a href="https://github.com/ofentse-sithole/GreenLife-Tracker" class="social-icon" target="_blank">
+                            <i class="fab fa-github-square" style="color: #070707;"></i>
+                        </a>
+                    </div>
+                </div>
 
-            <!-- Project Card 2 -->
-            <div class="project-card">
-                <img src="img/projects_images/GreenLife_Tracker_Logo.png" alt="Project Two">
-                <h3>GreenLife Tracker</h3>
-                <p>
-                    Your go-to platform for a healthier lifestyle and eco-friendly 
-                    living. Monitor and reduce your carbon footprint 
-                    effortlessly. Personalized nutrition tips and a diverse 
-                    range of workouts for your fitness journey. Start making 
-                    sustainable choices today!
-                </p>
-                <div class="buttons">
-                    <a href="https://github.com/ofentse-sithole/GreenLife-Tracker" class="btn">GitHub</a>
+                <!-- Project Card 3 -->
+                <div class="project-card">
+                    <img src="img/projects_images/hr.png" alt="Project Three">
+                    <h3>HR Harmony System</h3>
+                    <p>
+                        HR Harmony System is designed to collect and store employee
+                        details digitally, making it easier for users to manage their
+                        information without relying on paper. It is a well-defined employee
+                        management system.
+                    </p>
+                    <div class="buttons">
+                        <a href="https://github.com/ofentse-sithole/HRHarmonySystem" class="social-icon" target="_blank">
+                            <i class="fab fa-github-square" style="color: #070707;"></i> </a>
+                    </div>
+                </div>
+                
+                <!-- Project Card 4 -->
+                <div class="project-card">
+                    <img src="img/projects_images/disaster.png" alt="Project Three">
+                    <h3>Disaster Allievation Foundation</h3>
+                    <p>
+                        Disaster Alleviation Foundation is a web application
+                        designed to facilitate the management of disaster-related
+                        donations and aid. This platform enables authorized users
+                        to securely log in and perform various tasks related to
+                        capturing, managing, and allocating both monetary and
+                        goods donations.
+                    </p>
+                    <div class="buttons">
+                        <a href="https://github.com/ofentse-sithole/Disaster-Alleviation-Foundation" class="social-icon"
+                            target="_blank">
+                            <i class="fab fa-github-square" style="color: #070707;"></i> </a>
+                    </div>
+                </div>
+                
+                <!-- Project Card 5 -->
+                <div class="project-card">
+                    <img src="img/projects_images/MedicalSuite.jpg" alt="Project Three">
+                    <h3>Medical Suite</h3>
+                    <p>
+                        MedicalSuite is a comprehensive solution that
+                        includes both a web application and a mobile app
+                        designed to streamline the process of booking
+                        doctor's appointments. Patients can easily schedule
+                        appointments, doctors can manage their schedules,
+                        and administrators can oversee the system.
+                    </p>
+                    <div class="buttons">
+                        <a href="https://github.com/ofentse-sithole/MedicalSuite--Doctor_Appointment_System" class="social-icon"
+                            target="_blank">
+                            <i class="fab fa-github-square" style="color: #070707;"></i> </a>
+                    </div>
                 </div>
             </div>
-
-            <!-- Project Card 3 -->
-            <div class="project-card">
-                <img src="img/projects_images/hr.png" alt="Project Three">
-                <h3>HR Harmony System</h3>
-                <p>
-                    HR Harmony System is designed to collect and store employee 
-                details digitally, making it easier for users to manage their 
-                information without relying on paper. It is a well-defined employee 
-                management system.
-                </p>
-                <div class="buttons">
-                    <a href="https://github.com/ofentse-sithole/HRHarmonySystem" class="btn">GitHub</a>
-                </div>
-            </div>
-
-            <!-- Project Card 4 -->
-            <div class="project-card">
-                <img src="img/projects_images/disaster.png" alt="Project Three">
-                <h3>Disaster Allievation Foundation</h3>
-                <p>
-                    Disaster Alleviation Foundation is a web application 
-                designed to facilitate the management of disaster-related 
-                donations and aid. This platform enables authorized users 
-                to securely log in and perform various tasks related to 
-                capturing, managing, and allocating both monetary and 
-                goods donations.
-                </p>
-                <div class="buttons">
-                    <a href="https://github.com/ofentse-sithole/Disaster-Alleviation-Foundation" class="btn">GitHub</a>
-                </div>
-            </div>
-
-            <!-- Project Card 5 -->
-            <div class="project-card">
-                <img src="img/projects_images/MedicalSuite.jpg" alt="Project Three">
-                <h3>Medical Suite</h3>
-                <p>
-                    MedicalSuite is a comprehensive solution that 
-                    includes both a web application and a mobile app 
-                    designed to streamline the process of booking 
-                    doctor's appointments. Patients can easily schedule 
-                    appointments, doctors can manage their schedules, 
-                    and administrators can oversee the system.
-                </p>
-                <div class="buttons">
-                    <a href="https://github.com/ofentse-sithole/MedicalSuite--Doctor_Appointment_System" class="btn">GitHub</a>
-                </div>
-            </div>
+    
+            <!-- Navigation Arrows -->
+            <button class="slider-arrow left-arrow">←</button>
+            <button class="slider-arrow right-arrow">→</button>
         </div>
     </section>
 
-
+<br/>
+<br/>
      <!-- Centered Heading Section -->
      <div id="contact" class="contact-header">
         <p>Get in Touch</p>
@@ -316,3 +361,112 @@
 
 </body>
 </html>
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+            const projectsContainer = document.querySelector('.projects-container');
+            const leftArrow = document.querySelector('.left-arrow');
+            const rightArrow = document.querySelector('.right-arrow');
+            let currentSlide = 0;
+
+            function isMobile() {
+                return window.innerWidth <= 768;
+            }
+
+            function initSlider() {
+                if (!isMobile()) {
+                    projectsContainer.style.transform = 'none';
+                    return;
+                }
+
+                const totalSlides = document.querySelectorAll('.project-card').length;
+
+                function updateSlidePosition() {
+                    projectsContainer.style.transform = `translateX(-${currentSlide * 100}%)`;
+                }
+
+                // Reset to first slide on init
+                currentSlide = 0;
+                updateSlidePosition();
+
+                leftArrow.addEventListener('click', () => {
+                    if (!isMobile()) return;
+                    currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
+                    updateSlidePosition();
+                });
+
+                rightArrow.addEventListener('click', () => {
+                    if (!isMobile()) return;
+                    currentSlide = (currentSlide + 1) % totalSlides;
+                    updateSlidePosition();
+                });
+
+                let touchStartX = 0;
+                let touchEndX = 0;
+
+                projectsContainer.addEventListener('touchstart', (e) => {
+                    if (!isMobile()) return;
+                    touchStartX = e.changedTouches[0].screenX;
+                });
+
+                projectsContainer.addEventListener('touchend', (e) => {
+                    if (!isMobile()) return;
+                    touchEndX = e.changedTouches[0].screenX;
+                    handleSwipe();
+                });
+
+                function handleSwipe() {
+                    const swipeThreshold = 50;
+                    const difference = touchStartX - touchEndX;
+
+                    if (Math.abs(difference) > swipeThreshold) {
+                        if (difference > 0) {
+                            currentSlide = (currentSlide + 1) % totalSlides;
+                        } else {
+                            currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
+                        }
+                        updateSlidePosition();
+                    }
+                }
+            }
+
+            // Initialize slider
+            initSlider();
+
+            // Handle resize events
+            window.addEventListener('resize', () => {
+                initSlider();
+            });
+
+            // Reset transform on desktop
+            window.addEventListener('resize', () => {
+                if (!isMobile()) {
+                    projectsContainer.style.transform = 'none';
+                }
+            });
+        });
+
+
+</script>
+
+<script>
+    function toggleMenu() {
+            const navbarLinks = document.getElementById("navbarLinks");
+
+            if (navbarLinks.classList.contains("show")) {
+                // Closing animation
+                navbarLinks.style.opacity = "0";
+                navbarLinks.style.transform = "translateY(-20px)";
+                setTimeout(() => {
+                    navbarLinks.classList.remove("show");
+                }, 300); // Matches CSS transition duration
+            } else {
+                // Opening animation
+                navbarLinks.classList.add("show");
+                navbarLinks.style.opacity = "1";
+                navbarLinks.style.transform = "translateY(0)";
+            }
+        }
+
+
+</script>
