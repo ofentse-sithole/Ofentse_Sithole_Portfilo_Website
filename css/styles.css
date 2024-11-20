@@ -100,8 +100,8 @@
 
 /* Profile Picture */
 .picture img {
-    width: 200px;
-    height: 200px;
+    width: 100px;
+    height: 100px;
     border-radius: 50%;
     object-fit: cover;
 }
@@ -133,12 +133,12 @@
 /* Button Group */
 .button-group {
     display: flex;
-    gap: 15px;
+    gap: 5px;
     margin: 20px 0;
 }
 
 .cv-button, .contact-button {
-    padding: 10px 15px;
+    padding: 10px 10px;
     font-size: 16px;
     color: #333;
     border: 2px solid #333;
