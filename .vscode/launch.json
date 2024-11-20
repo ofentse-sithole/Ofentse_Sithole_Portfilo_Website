@@ -8,7 +8,8 @@
             "type": "msedge",
             "request": "launch",
             "name": "Open home.html", 
-            "file": "C:\\Users\\Ofentse\\Downloads\\Ofentse_Website\\Ofentse_Website\\home.html"
+            "file": "C:\\Users\\CAPACITI-JHB\\Documents\\OTS\\Ofentse_Sithole_Portfilo_Website\\home.html"
+            
             //"file": "C:\\Users\\CAPACITI-JHB\\Documents\\Ofentse_Website\\home.html"  // Path to Chrome on Windows
 
         }
