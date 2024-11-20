@@ -826,3 +826,50 @@ body {
 .timeline-content a:hover {
     text-decoration: underline;
 }
+
+
+.animated-energy {
+    font-weight: bold;
+    font-size: 1.5rem;
+    color: #007BFF; /* Primary blue */
+    animation: float-energy 3s infinite ease-in-out;
+    position: relative;
+    display: inline-block;
+}
+
+@keyframes float-energy {
+    0% {
+        transform: translateY(0) scale(1);
+        text-shadow: 0 0 5px rgba(0, 123, 255, 0.8);
+    }
+    25% {
+        transform: translateY(-10px) scale(1.1);
+        text-shadow: 0 0 15px rgba(0, 123, 255, 1);
+    }
+    50% {
+        transform: translateY(0) scale(1);
+        text-shadow: 0 0 10px rgba(0, 123, 255, 0.8);
+    }
+    75% {
+        transform: translateY(10px) scale(0.9);
+        text-shadow: 0 0 5px rgba(0, 123, 255, 0.6);
+    }
+    100% {
+        transform: translateY(0) scale(1);
+        text-shadow: 0 0 5px rgba(0, 123, 255, 0.8);
+    }
+}
+
+.github-link {
+    margin-top: auto; /* Push the link to the bottom */
+    align-self: flex-start; /* Align it to the start or center as needed */
+    font-size: 1rem;
+    color: #007BFF;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.github-link:hover {
+    color: #0056b3;
+    text-decoration: underline;
+}
