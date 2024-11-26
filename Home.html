@@ -13,7 +13,10 @@
 <nav class="navbar">
     <div class="navbar-brand">
         Ofentse Terence Sithole
-        <button class="menu-toggle" onclick="toggleMenu()">☰</button>
+        <button class="menu-toggle" onclick="toggleMenu()">
+            <span class="menu-icon">☰</span>
+            <span class="close-icon" style="display: none;">✕</span>
+        </button>
     </div>
     <ul class="navbar-links" id="navbarLinks">
         <li><a href="#about">About</a></li>
@@ -355,7 +358,7 @@
         </div>
         
         
-
+        
 </body>
 </html>
 
@@ -488,22 +491,41 @@
 <script>
     //Navbar
     function toggleMenu() {
-            const navbarLinks = document.getElementById("navbarLinks");
+    const navbarLinks = document.getElementById("navbarLinks");
+    const menuToggle = document.querySelector(".menu-toggle");
+    
+    if (navbarLinks.classList.contains("show")) {
+        // Closing animation
+        navbarLinks.style.opacity = "0";
+        navbarLinks.style.transform = "translateY(-20px)";
+        menuToggle.classList.remove("active");
+        setTimeout(() => {
+            navbarLinks.classList.remove("show");
+        }, 300);
+    } else {
+        // Opening animation
+        navbarLinks.classList.add("show");
+        navbarLinks.style.opacity = "1";
+        navbarLinks.style.transform = "translateY(0)";
+        menuToggle.classList.add("active");
+    }
 
-            if (navbarLinks.classList.contains("show")) {
-                // Closing animation
-                navbarLinks.style.opacity = "0";
-                navbarLinks.style.transform = "translateY(-20px)";
-                setTimeout(() => {
-                    navbarLinks.classList.remove("show");
-                }, 300); // Matches CSS transition duration
-            } else {
-                // Opening animation
-                navbarLinks.classList.add("show");
-                navbarLinks.style.opacity = "1";
-                navbarLinks.style.transform = "translateY(0)";
-            }
-        }
-
-
+    // Add click event listeners to all navbar links
+    document.querySelectorAll('.navbar-links a').forEach(link => {
+    link.addEventListener('click', () => {
+        const navbarLinks = document.getElementById("navbarLinks");
+        const menuToggle = document.querySelector(".menu-toggle");
+        
+        // Close the menu
+        navbarLinks.style.opacity = "0";
+        navbarLinks.style.transform = "translateY(-20px)";
+        menuToggle.classList.remove("active");
+        
+        setTimeout(() => {
+            navbarLinks.classList.remove("show");
+        }, 300);
+    });
+});
+}
 </script>
+

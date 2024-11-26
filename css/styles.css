@@ -90,6 +90,20 @@
     .navbar-links a {
         font-size: 18px;
     }
+
+    .menu-toggle .menu-icon,
+    .menu-toggle .close-icon {
+        transition: all 0.3s ease;
+    }
+
+    .menu-toggle.active .menu-icon {
+        display: none;
+    }
+
+    .menu-toggle.active .close-icon {
+        display: inline !important;
+    }
+
 }
 /* Profile Section */
 .profile-section {
