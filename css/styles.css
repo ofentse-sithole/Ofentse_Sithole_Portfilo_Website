@@ -386,129 +386,54 @@
     box-sizing: border-box;
 }
 
-/* Common styles for both desktop and mobile */
-.projects-section {
-    text-align: center;
-    background-color: #f9f9f9;
-    padding: 50px 20px;
+.timeline-navigation {
+    position: relative;
+    width: 100%;
+    display: flex;
+    align-items: center;
 }
 
-.projects-section p {
-    font-size: 16px;
-    color: #666;
-    margin-top: 20px;
+.timeline-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: #fff;
+    border: none;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    z-index: 10;
+    transition: all 0.3s ease;
 }
 
-.projects-section h1 {
-    font-size: 32px;
-    color: #333;
-    margin-bottom: 20px;
+.timeline-arrow:hover {
+    background: #f0f0f0;
+    transform: translateY(-50%) scale(1.1);
 }
 
-/* Desktop styles */
-@media (min-width: 769px) {
-    .projects-container {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-        gap: 30px;
-        max-width: 1200px;
-        margin: 0 auto;
-        padding: 20px;
-    }
-
-    .project-card {
-        background: #fff;
-        border-radius: 10px;
-        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-        padding: 20px;
-        transition: transform 0.3s ease;
-    }
-
-    .project-card:hover {
-        transform: translateY(-5px);
-    }
-
-    .slider-arrow {
-        display: none;
-    }
+.left-arrow {
+    left: 10px;
 }
 
-/* Mobile styles */
+.right-arrow {
+    right: 10px;
+}
+
+/* Mobile responsiveness */
 @media (max-width: 768px) {
-    .projects-section {
-        padding: 20px 0;
+    .timeline-arrow {
+        width: 35px;
+        height: 35px;
     }
-
-    .projects-slider {
-        position: relative;
-        width: 100%;
-        height: 100vh;
-        overflow: hidden;
-    }
-
-    .projects-container {
-        display: flex;
-        flex-wrap: nowrap;
-        transition: transform 0.5s ease-in-out;
-    }
-
-    .project-card {
-        min-width: 100%;
-        flex-shrink: 0;
-        height: 100vh;
-        padding: 20px;
-        background: #fff;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-    }
-
-/* Common project card styles */
-.project-card img {
-    max-width: 100%;
-    height: auto;
-    border-radius: 5px;
-    margin-bottom: 15px;
-}
-
-.project-card h3 {
-    font-size: 24px;
-    color: #333;
-    margin: 15px 0;
-}
-
-.project-card p {
-    font-size: 16px;
-    color: #666;
-    line-height: 1.6;
-    margin: 15px 0;
-}
-
-    .slider-arrow {
-        position: absolute;
-        top: 50%;
-        transform: translateY(-50%);
-        width: 40px;
-        height: 40px;
-        background: rgba(0, 0, 0, 0.6);
-        color: white;
-        border: none;
-        border-radius: 50%;
-        font-size: 20px;
-        cursor: pointer;
-        z-index: 1000;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    }
-
+    
     .left-arrow {
-        left: 10px;
+        left: 5px;
     }
-
+    
     .right-arrow {
-        right: 10px;
+        right: 5px;
     }
 }
 

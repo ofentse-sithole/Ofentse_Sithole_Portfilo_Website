@@ -231,6 +231,13 @@
     <br/>
     <section id="projects" class="projects-section">
         <h1>Projects Timeline</h1>
+
+        <!-- Add navigation arrows -->
+    <div class="timeline-navigation">
+        <button class="timeline-arrow left-arrow">
+            <i class="fas fa-chevron-left"></i>
+        </button>
+
         <div class="timeline">
             <!-- Timeline Item 1 -->
             <div class="timeline-item">
@@ -260,18 +267,6 @@
             <div class="timeline-item">
                 <div class="timeline-date">2023</div>
                 <div class="timeline-content">
-                    <h3>GreenLife Tracker</h3>
-                    <p>A platform for healthy living that helps users track their carbon footprint and fitness goals.</p>
-                    <p class="animated-energy">C# HTML CSS JavaScript Firebase-Authentication </p>
-                    <br/>
-                    <a href="https://github.com/ofentse-sithole/GreenLife-Tracker" target="_blank">View on GitHub</a>
-                </div>
-            </div>
-    
-            <!-- Timeline Item 4 -->
-            <div class="timeline-item">
-                <div class="timeline-date">2023</div>
-                <div class="timeline-content">
                     <h3>Medical Suite</h3>
                     <p>A comprehensive system for booking doctor appointments, including patient, doctor, and admin portals.</p>
                     <p class="animated-energy">HTML CSS Firebase Authentication Firebase Firestore Kotlin </p>
@@ -280,7 +275,7 @@
                 </div>
             </div>
 
-            <!-- Timeline Item 5 -->
+            <!-- Timeline Item 4 -->
             <div class="timeline-item">
                 <div class="timeline-date">2024</div>
                 <div class="timeline-content">
@@ -292,29 +287,9 @@
                 </div>
             </div>
 
-            <!-- Timeline Item 6 -->
-            <div class="timeline-item">
-                <div class="timeline-date">2024</div>
-                <div class="timeline-content">
-                    <h3>StringAPI</h3>
-                    <p>WebCore.API that takes a string as input, returns the reversed string, and checks if the input string is a palindrome, accessible via an endpoint.</p>
-                    <p class="animated-energy">C#</p>
-                    <BR/>
-                    <a href="https://github.com/ofentse-sithole/StringAPI" class="github-link" target="_blank">View on GitHub</a>
-                </div>
-            </div>
-
-            <!-- Timeline Item 7 -->
-            <div class="timeline-item">
-                <div class="timeline-date">2024</div>
-                <div class="timeline-content">
-                    <h3>ATM</h3>
-                    <p>This is a simple console application representing an ATM system for Oviria Bank. Users can interact with the ATM by choosing between card-based and cardless options.</p>
-                    <p class="animated-energy">C#</p>
-                    <br/>
-                    <a href="https://github.com/ofentse-sithole/ATM"  target="_blank">View on GitHub</a>
-                </div>
-            </div>
+            <button class="timeline-arrow right-arrow">
+                <i class="fas fa-chevron-right"></i>
+            </button>
         </div>
     </section>
     
@@ -411,88 +386,32 @@
 <script>
     //adding an arrow for projects to go from left to right
     document.addEventListener('DOMContentLoaded', () => {
-            const projectsContainer = document.querySelector('.projects-container');
-            const leftArrow = document.querySelector('.left-arrow');
-            const rightArrow = document.querySelector('.right-arrow');
-            let currentSlide = 0;
-
-            function isMobile() {
-                return window.innerWidth <= 768;
-            }
-
-            function initSlider() {
-                if (!isMobile()) {
-                    projectsContainer.style.transform = 'none';
-                    return;
-                }
-
-                const totalSlides = document.querySelectorAll('.project-card').length;
-
-                function updateSlidePosition() {
-                    projectsContainer.style.transform = `translateX(-${currentSlide * 100}%)`;
-                }
-
-                // Reset to first slide on init
-                currentSlide = 0;
-                updateSlidePosition();
-
-                leftArrow.addEventListener('click', () => {
-                    if (!isMobile()) return;
-                    currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
-                    updateSlidePosition();
-                });
-
-                rightArrow.addEventListener('click', () => {
-                    if (!isMobile()) return;
-                    currentSlide = (currentSlide + 1) % totalSlides;
-                    updateSlidePosition();
-                });
-
-                let touchStartX = 0;
-                let touchEndX = 0;
-
-                projectsContainer.addEventListener('touchstart', (e) => {
-                    if (!isMobile()) return;
-                    touchStartX = e.changedTouches[0].screenX;
-                });
-
-                projectsContainer.addEventListener('touchend', (e) => {
-                    if (!isMobile()) return;
-                    touchEndX = e.changedTouches[0].screenX;
-                    handleSwipe();
-                });
-
-                function handleSwipe() {
-                    const swipeThreshold = 50;
-                    const difference = touchStartX - touchEndX;
-
-                    if (Math.abs(difference) > swipeThreshold) {
-                        if (difference > 0) {
-                            currentSlide = (currentSlide + 1) % totalSlides;
-                        } else {
-                            currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
-                        }
-                        updateSlidePosition();
-                    }
-                }
-            }
-
-            // Initialize slider
-            initSlider();
-
-            // Handle resize events
-            window.addEventListener('resize', () => {
-                initSlider();
-            });
-
-            // Reset transform on desktop
-            window.addEventListener('resize', () => {
-                if (!isMobile()) {
-                    projectsContainer.style.transform = 'none';
-                }
-            });
-        });
-
+    const timeline = document.querySelector('.timeline');
+    const leftArrow = document.querySelector('.left-arrow');
+    const rightArrow = document.querySelector('.right-arrow');
+    const timelineItems = document.querySelectorAll('.timeline-item');
+    
+    let currentIndex = 0;
+    
+    function updateTimeline() {
+        const itemWidth = timelineItems[0].offsetWidth;
+        timeline.style.transform = `translateX(-${currentIndex * itemWidth}px)`;
+    }
+    
+    leftArrow.addEventListener('click', () => {
+        if (currentIndex > 0) {
+            currentIndex--;
+            updateTimeline();
+        }
+    });
+    
+    rightArrow.addEventListener('click', () => {
+        if (currentIndex < timelineItems.length - 1) {
+            currentIndex++;
+            updateTimeline();
+        }
+    });
+});
 
 </script>
 
