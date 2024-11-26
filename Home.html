@@ -17,7 +17,7 @@
     </div>
     <ul class="navbar-links" id="navbarLinks">
         <li><a href="#about">About</a></li>
-        <li><a href="#experience">Experience</a></li>
+        <li><a href="#skills">Skills</a></li>
         <li><a href="#projects">Projects</a></li>
         <li><a href="#contact">Contact</a></li>
     </ul>
@@ -128,9 +128,9 @@
     </div>
 
     <!-- Experience Section -->
-    <div id="experience" class="experience-section">
+    <div id="skills" class="experience-section">
         <p>Explore My</p>
-        <h1>Experience</h1>
+        <h1>Skills</h1>
 
         <div  class="experience-content">
             <!-- Frontend Development Skills -->
@@ -359,7 +359,10 @@
 </body>
 </html>
 
+
 <script>
+    //This will help with the contact form to send message directly to email
+
     // Initialize Email.js with your Public Key
     (function () {
         emailjs.init('VOFr5BSVr9ekS3_JC');
@@ -395,6 +398,7 @@
 </script>
 
 <script>
+    //adding an arrow for projects to go from left to right
     document.addEventListener('DOMContentLoaded', () => {
             const projectsContainer = document.querySelector('.projects-container');
             const leftArrow = document.querySelector('.left-arrow');
@@ -482,6 +486,7 @@
 </script>
 
 <script>
+    //Navbar
     function toggleMenu() {
             const navbarLinks = document.getElementById("navbarLinks");
 
