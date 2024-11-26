@@ -900,7 +900,7 @@ body {
 }
 
 .footer-content {
-    
+
     display: flex;
     align-items: center;
     justify-content: center;
@@ -917,4 +917,43 @@ body {
 .copyright {
     color: #ffffff;
     font-size: 0.9em;
+}
+
+/* Mobile responsive footer */
+@media (max-width: 768px) {
+    .footer {
+        padding: 15px 0;
+    }
+
+    .footer-content {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .footer-photo {
+        width: 35px;
+        height: 35px;
+    }
+
+    .copyright {
+        font-size: 0.8em;
+        text-align: center;
+        padding: 0 15px;
+    }
+}
+
+/* Extra small devices */
+@media (max-width: 480px) {
+    .footer {
+        padding: 12px 0;
+    }
+
+    .footer-photo {
+        width: 60px;
+        height: 60px;
+    }
+
+    .copyright {
+        font-size: 0.75em;
+    }
 }
