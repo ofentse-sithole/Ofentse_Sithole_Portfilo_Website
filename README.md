@@ -70,9 +70,9 @@ This site serves as a platform to showcase projects, skills, education, and cont
 Feel free to reach out for collaboration or inquiries!  
 
 - 📧 **Email**: [otsithole07@gmail.com](mailto:otsithole07@gmail.com)  
-- 💼 **LinkedIn**: [LinkedIn Profile](https://www.linkedin.com/in/yourprofile)  
-- 💻 **GitHub**: [GitHub Profile](https://github.com/yourprofile)  
-- 🌐 **Website**: [Portfolio Link](https://example.com)  
+- 💼 **LinkedIn**: [LinkedIn Profile](https://www.linkedin.com/in/ofentse-sithole-145943264/)  
+- 💻 **GitHub**: [GitHub Profile](https://github.com/ofentse-sithole/Ofentse_Sithole_Portfilo_Website)  
+- 🌐 **Website**: [Portfolio Link](https://ofentse-terence-sithole.netlify.app/)  
 
 ---
 
