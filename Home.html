@@ -356,8 +356,16 @@
                 <button type="submit">Send Message</button>
             </form>
         </div>
+        </section>
         
-        
+        <footer class="footer">
+            <div class="footer-content">
+                <img src="img/img_2.jpeg" alt="Ofentse Terence Sithole" class="footer-photo">
+                <p class="copyright">
+                    © <span id="currentYear"></span> Ofentse Terence Sithole. All rights reserved.
+                </p>
+            </div>
+        </footer>
         
 </body>
 </html>
@@ -529,3 +537,7 @@
 }
 </script>
 
+<script>
+    // Auto-updating year in footer
+    document.getElementById('currentYear').textContent = new Date().getFullYear();
+</script>

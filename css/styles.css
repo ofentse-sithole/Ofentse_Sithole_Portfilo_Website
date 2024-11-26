@@ -891,3 +891,30 @@ body {
     color: #0056b3;
     text-decoration: underline;
 }
+
+.footer {
+    background-color: #0a0a0a;
+    padding: 20px 0;
+    text-align: center;
+    box-shadow: 0 -4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.footer-content {
+    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+}
+
+.footer-photo {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.copyright {
+    color: #ffffff;
+    font-size: 0.9em;
+}
