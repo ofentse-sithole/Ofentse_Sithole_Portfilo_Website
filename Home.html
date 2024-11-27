@@ -342,6 +342,20 @@
             </div>
         </footer>
         
+        <!-- Chatbot -->
+    <div id="chatbot">
+        <div id="chatbot-header">
+            <h2>Chatbot</h2>
+            <button id="close-chatbot">X</button>
+        </div>
+        <div id="chatbot-messages"></div>
+        <input type="text" id="chatbot-input" placeholder="Type a message...">
+        <button id="send-chatbot">Send</button>
+        <button id="clear-chatbot">Clear Chat</button>
+    </div>
+    <button id="open-chatbot">Chat with us</button>
+
+    <script src="chatbot.js"></script>
 </body>
 </html>
 
@@ -459,4 +473,32 @@
 <script>
     // Auto-updating year in footer
     document.getElementById('currentYear').textContent = new Date().getFullYear();
+</script>
+
+<script>
+    document.getElementById('open-chatbot').addEventListener('click', function() {
+        document.getElementById('chatbot').style.display = 'block';
+        this.style.display = 'none';
+    });
+
+    document.getElementById('close-chatbot').addEventListener('click', function() {
+        document.getElementById('chatbot').style.display = 'none';
+        document.getElementById('open-chatbot').style.display = 'block';
+    });
+
+    document.getElementById('send-chatbot').addEventListener('click', function() {
+        const input = document.getElementById('chatbot-input');
+        const message = input.value;
+        if (message.trim() !== '') {
+            const messageElement = document.createElement('div');
+            messageElement.textContent = message;
+            document.getElementById('chatbot-messages').appendChild(messageElement);
+            input.value = '';
+            // Here you can add code to send the message to your server or chatbot API
+        }
+    });
+
+    document.getElementById('clear-chatbot').addEventListener('click', function() {
+        document.getElementById('chatbot-messages').innerHTML = '';
+    });
 </script>
