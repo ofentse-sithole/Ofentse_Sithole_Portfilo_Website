@@ -163,33 +163,6 @@
             <!-- Backend Development Skills -->
             <div class="experience-box">
                 <h3>Backend Development</h3>
-                <div class="skill">
-                    <i class="fas fa-database" style="color: #f800ec;"></i>
-                    <div>
-                        <p>Microsoft SQL</p>
-                    </div>
-                </div>
-
-                <div class="skill">
-                    <img src="img/oracle.png" width="55" height="60">
-                    <div>
-                        <p> Oracle</p>
-                    </div>
-                </div>
-
-                <div class="skill">
-                    <img src="img/azuresql.png" width="55" height="60">
-                    <div>
-                        <p>Azure SQL</p>
-                    </div>
-                </div>
-
-                <div class="skill">
-                    <img src="img/devops.png" width="45" height="45">
-                    <div>
-                        <p>Azure DevOps</p>
-                    </div>
-                </div>
 
                 <div class="skill">
                     <img src="img/java.png" width="35" height="40">
@@ -204,19 +177,52 @@
                         <p>C#</p>
                     </div>
                 </div>
-                
-                <div class="skill">
-                    <i class="fab fa-node-js" style="color: #00f80c;"></i>
-                    <div>
-                        <p>Node JS</p>
-                    </div>
-                </div>
+
                 <div class="skill">
                     <img src="img/icons8-kotlin-48.png" width="35" height="35">
                     <div>
                         <p>Kotlin</p>
                     </div>
                 </div>
+
+                <div class="skill">
+                    <i class="fab fa-node-js" style="color: #00f80c;"></i>
+                    <div>
+                        <p>Node JS</p>
+                    </div>
+                </div>
+
+                <div class="skill">
+                    <img src="img/oracle.png" width="55" height="60">
+                    <div>
+                        <p> Oracle</p>
+                    </div>
+                </div>
+
+
+                <div class="skill">
+                    <i class="fas fa-database" style="color: #f800ec;"></i>
+                    <div>
+                        <p>Microsoft SQL</p>
+                    </div>
+                </div>
+
+                
+                <div class="skill">
+                    <img src="img/azuresql.png" width="55" height="60">
+                    <div>
+                        <p>Azure SQL</p>
+                    </div>
+                </div>
+
+                <div class="skill">
+                    <img src="img/devops.png" width="45" height="45">
+                    <div>
+                        <p>Azure DevOps</p>
+                    </div>
+                </div>
+
+                
                 <div class="skill">
                     <i class="fas fa-code-branch" style="color: #f80000;"></i>
                     <div>
@@ -230,7 +236,7 @@
     <br/>
     <br/>
     <section id="projects" class="projects-section">
-        <h1>Projects Timeline</h1>
+    <h1>Projects Timeline</h1>
 
         <!-- Add navigation arrows -->
     <div class="timeline-navigation">
@@ -397,36 +403,34 @@
 </script>
 
 <script>
-    //adding an arrow for projects to go from left to right
     document.addEventListener('DOMContentLoaded', () => {
-    const timeline = document.querySelector('.timeline');
-    const leftArrow = document.querySelector('.left-arrow');
-    const rightArrow = document.querySelector('.right-arrow');
-    const timelineItems = document.querySelectorAll('.timeline-item');
-    
-    let currentIndex = 0;
-    
-    function updateTimeline() {
-        const itemWidth = timelineItems[0].offsetWidth;
-        timeline.style.transform = `translateX(-${currentIndex * itemWidth}px)`;
-    }
-    
-    leftArrow.addEventListener('click', () => {
-        if (currentIndex > 0) {
-            currentIndex--;
-            updateTimeline();
+        const timeline = document.querySelector('.timeline');
+        const leftArrow = document.querySelector('.left-arrow');
+        const rightArrow = document.querySelector('.right-arrow');
+        const timelineItems = document.querySelectorAll('.timeline-item');
+        
+        let currentIndex = 0;
+        
+        function updateTimeline() {
+            const itemWidth = timelineItems[0].offsetWidth;
+            timeline.style.transform = `translateX(-${currentIndex * itemWidth}px)`;
         }
+        
+        leftArrow.addEventListener('click', () => {
+            if (currentIndex > 0) {
+                currentIndex--;
+                updateTimeline();
+            }
+        });
+        
+        rightArrow.addEventListener('click', () => {
+            if (currentIndex < timelineItems.length - 1) {
+                currentIndex++;
+                updateTimeline();
+            }
+        });
     });
-    
-    rightArrow.addEventListener('click', () => {
-        if (currentIndex < timelineItems.length - 1) {
-            currentIndex++;
-            updateTimeline();
-        }
-    });
-});
-
-</script>
+    </script>
 
 <script>
     //Navbar
