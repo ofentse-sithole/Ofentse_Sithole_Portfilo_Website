@@ -902,10 +902,11 @@ body {
     bottom: 0;
     right: 20px;
     width: 300px;
-    background-color: white;
+    background-color: #001f3f; /* Dark blue background */
     border: 1px solid #ccc;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     z-index: 1000;
+    color: white; /* Default text color */
 }
 
 #chatbot-header {
@@ -941,6 +942,16 @@ body {
     cursor: pointer;
 }
 
+#clear-chatbot {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    background-color: #dc3545;
+    color: white;
+    cursor: pointer;
+    margin-top: 5px;
+}
+
 #open-chatbot {
     position: fixed;
     bottom: 20px;
@@ -952,12 +963,22 @@ body {
     cursor: pointer;
 }
 
-#clear-chatbot {
-    width: 100%;
+.message {
+    margin: 5px 0;
     padding: 10px;
-    border: none;
-    background-color: #dc3545;
+    border-radius: 5px;
+    max-width: 80%;
+    word-wrap: break-word;
+}
+
+.user-message {
+    background-color: #6a0dad; /* Purple background for user messages */
     color: white;
-    cursor: pointer;
-    margin-top: 5px;
+    align-self: flex-end;
+}
+
+.chatbot-message {
+    background-color: #0974df; /* Dark blue background for chatbot messages */
+    color: white;
+    align-self: flex-start;
 }
