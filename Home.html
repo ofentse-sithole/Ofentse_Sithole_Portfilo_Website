@@ -520,6 +520,14 @@
             const chatMessages = document.getElementById('chatbot-messages');
             const messageDiv = document.createElement('div');
             messageDiv.className = `message ${sender}-message`;
+    
+            if (sender === 'chatbot') {
+                const label = document.createElement('div');
+                label.className = 'message-label';
+                label.textContent = 'Chatbot';
+                chatMessages.appendChild(label);
+            }
+    
             messageDiv.textContent = text;
             chatMessages.appendChild(messageDiv);
             chatMessages.scrollTop = chatMessages.scrollHeight;
@@ -528,4 +536,3 @@
     
     document.addEventListener('DOMContentLoaded', () => chatbot.init());
     </script>
-    
