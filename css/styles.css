@@ -532,10 +532,6 @@
     transform: translateY(-50%) scale(1.1);
 }
 
-.left-arrow {
-    left: 10px;
-}
-
 .right-arrow {
     right: 10px;
 }
@@ -601,15 +597,10 @@
         height: 35px;
     }
     
-    .left-arrow {
-        left: 5px;
-    }
-    
     .right-arrow {
         right: 5px;
     }
 }
-
 /* Buttons */
 .buttons {
     display: flex;
