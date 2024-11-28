@@ -230,8 +230,39 @@
                     </div>
                 </div>
             </div>
+
+              <!-- Soft Skills -->
+              <div class="experience-box">
+                <h3>Soft Skills</h3>
+                <div class="skill">
+                    <i class="fas fa-comments" style="color: #f10909;"></i>
+                    <div>
+                        <p>Communication</p>
+                    </div>
+                </div>
+                <div class="skill">
+                    <i class="fas fa-users" style="color: #0975f1;"></i>
+                    <div>
+                        <p>Teamwork</p>
+                    </div>
+                </div>
+                <div class="skill">
+                    <i class="fas fa-sync-alt" style="color: #f8d300;"></i>
+                    <div>
+                        <p>Adaptability</p>
+                    </div>
+                </div>
+                <div class="skill">
+                    <i class="fas fa-clock" style="color: #00f0f8;"></i>
+                    <div>
+                        <p>Time Management</p>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
+
+    
 
     <br/>
     <br/>
@@ -532,7 +563,7 @@
             if (sender === 'chatbot') {
                 const label = document.createElement('div');
                 label.className = 'message-label';
-                label.textContent = 'Chatbot';
+                label.textContent = sender.charAt(0).toUpperCase() + sender.slice(1);
                 chatMessages.appendChild(label);
             }
     
