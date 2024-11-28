@@ -1011,11 +1011,24 @@ body {
     position: fixed;
     bottom: 20px;
     right: 20px;
-    padding: 10px 20px;
-    background-color: #007bff;
-    color: white;
-    border: none;
-    cursor: pointer;
+    padding: 10px;
+    background-color: #007bff; /* Blue background */
+    color: white; /* White icon */
+    border: none; /* Remove border */
+    border-radius: 50%; /* Make it circular */
+    width: 50px; /* Width of the button */
+    height: 50px; /* Height of the button */
+    font-size: 24px; /* Font size of the icon */
+    cursor: pointer; /* Pointer cursor on hover */
+    display: flex; /* Flexbox for centering */
+    align-items: center; /* Center vertically */
+    justify-content: center; /* Center horizontally */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Add shadow */
+    transition: background-color 0.3s ease; /* Smooth transition */
+}
+
+#open-chatbot:hover {
+    background-color: #0056b3; /* Darker blue on hover */
 }
 
 .message {
@@ -1056,5 +1069,27 @@ body {
 }
 
 #clear-chatbot:hover {
+    background-color: #c82333; /* Darker red on hover */
+}
+
+#close-chatbot {
+    background-color: #dc3545; /* Red background */
+    color: white; /* White text */
+    border: none; /* Remove border */
+    border-radius: 50%; /* Make it circular */
+    width: 30px; /* Width of the button */
+    height: 30px; /* Height of the button */
+    font-size: 16px; /* Font size */
+    cursor: pointer; /* Pointer cursor on hover */
+    display: flex; /* Flexbox for centering */
+    align-items: center; /* Center vertically */
+    justify-content: center; /* Center horizontally */
+    position: absolute; /* Position it absolutely */
+    top: 10px; /* Position from the top */
+    right: 10px; /* Position from the right */
+    transition: background-color 0.3s ease; /* Smooth transition */
+}
+
+#close-chatbot:hover {
     background-color: #c82333; /* Darker red on hover */
 }
