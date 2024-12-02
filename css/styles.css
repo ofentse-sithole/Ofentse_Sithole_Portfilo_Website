@@ -118,6 +118,8 @@
     }
 
 }
+
+
 /* Profile Section */
 .profile-section {
     display: flex;
@@ -131,8 +133,8 @@
 
 /* Profile Picture */
 .picture img {
-    width: 100px;
-    height: 100px;
+    width: 150px;
+    height: 150px;
     border-radius: 50%;
     object-fit: cover;
 }
@@ -208,6 +210,99 @@
 .social-icon:hover {
     color: #666;
 }
+
+@media (max-width: 768px) {
+    .profile-section {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 40px;
+        gap: 50px;
+        max-width: 900px;
+        margin: auto;
+    }
+    
+    /* Profile Picture */
+    .picture img {
+        width: 100px;
+        height: 100px;
+        border-radius: 50%;
+        object-fit: cover;
+    }
+    
+    /* Profile Info */
+    .profile-info {
+        text-align: left;
+    }
+    
+    .profile-info .intro {
+        font-size: 16px;
+        color: #666;
+        margin: 0;
+    }
+    
+    .profile-info h1 {
+        font-size: 36px;
+        font-weight: bold;
+        margin: 5px 0;
+    }
+    
+    .profile-info h2 {
+        font-size: 20px;
+        color: #333;
+        font-weight: normal;
+        margin: 10px 0;
+    }
+    
+    /* Button Group */
+    .button-group {
+        display: flex;
+        gap: 5px;
+        margin: 20px 0;
+    }
+    
+    .cv-button, .contact-button {
+        padding: 10px 10px;
+        font-size: 16px;
+        color: #333;
+        border: 2px solid #333;
+        border-radius: 5px;
+        background-color: transparent;
+        cursor: pointer;
+        transition: all 0.3s ease;
+    }
+    
+    .cv-button:hover, .contact-button:hover {
+        background-color: #333;
+        color: #fff;
+    }
+    
+    /* Social Icons */
+    .social-icons {
+        display: flex;
+        gap: 20px;
+        margin-top: 10px;
+    }
+    
+    .social-icon {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        font-size: 18px;
+        color: #333;
+        text-decoration: none;
+        transition: color 0.3s ease;
+    }
+    
+    .social-icon i {
+        font-size: 24px; /* Size of the icon */
+    }
+    
+    .social-icon:hover {
+        color: #666;
+    }
+}
+
 
 /*    ABOUT SECTION      */
 .about-section {
@@ -398,6 +493,18 @@
     box-sizing: border-box;
 }
 
+.projects-section {
+    background-color: #FFF;
+    padding: 40px 20px;
+    text-align: center;
+}
+
+.projects-section h1 {
+    font-size: 30px;
+    margin-bottom: 30px;
+    color: #050505;
+}
+
 .timeline-navigation {
     position: relative;
     width: 100%;
@@ -425,12 +532,62 @@
     transform: translateY(-50%) scale(1.1);
 }
 
-.left-arrow {
-    left: 10px;
-}
-
 .right-arrow {
     right: 10px;
+}
+
+.timeline {
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    padding: 20px 0;
+    gap: 20px;
+    justify-content: flex-start;
+    position: relative;
+}
+
+.timeline-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex-shrink: 0;
+    width: 300px;
+    background: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    text-align: left;
+    position: relative;
+}
+
+.timeline-date {
+    font-size: 1.2em;
+    font-weight: bold;
+    color: #555;
+    margin-bottom: 10px;
+}
+
+.timeline-content h3 {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+    text-align: center;
+    color: #222;
+}
+
+.timeline-content p {
+    font-size: 1em;
+    margin-bottom: 10px;
+    color: #666;
+}
+
+.timeline-content a {
+    font-size: 1em;
+    color: #007BFF;
+    text-decoration: none;
+}
+
+.timeline-content a:hover {
+    text-decoration: underline;
 }
 
 /* Mobile responsiveness */
@@ -440,15 +597,10 @@
         height: 35px;
     }
     
-    .left-arrow {
-        left: 5px;
-    }
-    
     .right-arrow {
         right: 5px;
     }
 }
-
 /* Buttons */
 .buttons {
     display: flex;
@@ -894,4 +1046,181 @@ body {
     .copyright {
         font-size: 0.75em;
     }
+}
+
+#chatbot {
+    display: none;
+    position: fixed;
+    bottom: 0;
+    right: 20px;
+    width: 300px;
+    background-color: rgb(4, 34, 73);
+    border: 1px solid #ccc;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+}
+
+#chatbot-header {
+    background-color: #007bff;
+    color: white;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#chatbot-messages {
+    height: 200px;
+    overflow-y: auto;
+    padding: 10px;
+    border-top: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
+    display: flex;
+    flex-direction: column;
+}
+
+#chatbot {
+    display: none;
+    position: fixed;
+    bottom: 0;
+    right: 20px;
+    width: 300px;
+    background-color: rgb(4, 34, 73);
+    border: 1px solid #ccc;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+}
+
+#chatbot-header {
+    background-color: #007bff;
+    color: white;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#chatbot-messages {
+    height: 200px;
+    overflow-y: auto;
+    padding: 10px;
+    border-top: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
+    display: flex;
+    flex-direction: column;
+}
+
+#chatbot-input {
+    width: calc(100% - 60px);
+    padding: 10px;
+    border: none;
+    border-top: 1px solid #ccc;
+}
+
+#send-chatbot {
+    width: 50px;
+    padding: 10px;
+    border: none;
+    background-color: #007bff;
+    color: white;
+    cursor: pointer;
+}
+
+#open-chatbot {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    padding: 10px;
+    background-color: #007bff; /* Blue background */
+    color: white; /* White icon */
+    border: none; /* Remove border */
+    border-radius: 50%; /* Make it circular */
+    width: 50px; /* Width of the button */
+    height: 50px; /* Height of the button */
+    font-size: 24px; /* Font size of the icon */
+    cursor: pointer; /* Pointer cursor on hover */
+    display: flex; /* Flexbox for centering */
+    align-items: center; /* Center vertically */
+    justify-content: center; /* Center horizontally */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Add shadow */
+    transition: background-color 0.3s ease; /* Smooth transition */
+}
+
+#open-chatbot:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+}
+
+.message-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-bottom: 10px;
+}
+
+.user-container {
+    align-items: flex-end;
+}
+
+.message {
+    margin: 5px 0;
+    padding: 10px;
+    border-radius: 5px;
+    display: inline-block; /* Ensure the box fits the text */
+    max-width: 80%;
+    word-wrap: break-word;
+}
+
+.user-message {
+    background-color: #6a0dad; /* Purple background for user messages */
+    color: white;
+    text-align: right;
+}
+
+.chatbot-message {
+    background-color: #6b61f7; /* Dark blue background for chatbot messages */
+    color: white;
+    text-align: left;
+}
+
+.message-label {
+    font-size: 0.8em;
+    color: #007bff; /* Blue color for the label */
+    margin-bottom: 2px;
+}
+
+#clear-chatbot {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    background-color: #dc3545; /* Red background */
+    color: white;
+    cursor: pointer;
+    margin-top: 5px;
+    transition: background-color 0.3s ease;
+}
+
+#clear-chatbot:hover {
+    background-color: #c82333; /* Darker red on hover */
+}
+
+#close-chatbot {
+    background-color: #dc3545; /* Red background */
+    color: white; /* White text */
+    border: none; /* Remove border */
+    border-radius: 50%; /* Make it circular */
+    width: 30px; /* Width of the button */
+    height: 30px; /* Height of the button */
+    font-size: 16px; /* Font size */
+    cursor: pointer; /* Pointer cursor on hover */
+    display: flex; /* Flexbox for centering */
+    align-items: center; /* Center vertically */
+    justify-content: center; /* Center horizontally */
+    position: absolute; /* Position it absolutely */
+    top: 10px; /* Position from the top */
+    right: 10px; /* Position from the right */
+    transition: background-color 0.3s ease; /* Smooth transition */
+}
+
+#close-chatbot:hover {
+    background-color: #c82333; /* Darker red on hover */
 }
