@@ -1,9 +1,14 @@
 const chatbot = {
+    hasGreeted: false, // Flag to check if the chatbot has greeted the user
+
     init() {
         document.getElementById('open-chatbot').addEventListener('click', () => {
             document.getElementById('chatbot').style.display = 'block';
             document.getElementById('open-chatbot').style.display = 'none';
-            this.addMessage('chatbot', "Hello! I'm Ofentse's virtual assistant. How can I help you today?");
+            if (!this.hasGreeted) {
+                this.addMessage('chatbot', "Hello! I'm Ofentse's virtual assistant. How can I help you today?");
+                this.hasGreeted = true; // Set the flag to true after greeting
+            }
         });
 
         document.getElementById('close-chatbot').addEventListener('click', () => {
@@ -24,6 +29,7 @@ const chatbot = {
 
         document.getElementById('clear-chatbot').addEventListener('click', () => {
             document.getElementById('chatbot-messages').innerHTML = '';
+            this.hasGreeted = false; // Reset the flag when the chat is cleared
         });
     },
 
@@ -48,8 +54,7 @@ const chatbot = {
             return "You can find Ofentse's GitHub profile at <a href='https://github.com/ofentse-sithole' target='_blank'>https://github.com/ofentse-sithole</a>.";
         } else if (message.includes('string api') || message.includes('string')) {
             return "String API Project WebCore.API that takes a string as input, returns the reversed string, and checks if the input string is a palindrome, accessible via an endpoint.";
-        }
-        else if (message.includes('list') || message.includes('please list projects')) {
+        } else if (message.includes('list') || message.includes('please list projects')) {
             return "A list of Ofentsee's projects: AviaryQuest, Medical Suite, HR Harmony System, Disaster Alleviation Foundation Project, and String API Project WebCore.API.";
         }
 
