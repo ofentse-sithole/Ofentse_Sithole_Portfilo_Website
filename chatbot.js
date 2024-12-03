@@ -3,6 +3,7 @@ const chatbot = {
         document.getElementById('open-chatbot').addEventListener('click', () => {
             document.getElementById('chatbot').style.display = 'block';
             document.getElementById('open-chatbot').style.display = 'none';
+            this.addMessage('chatbot', "Hello! I'm Ofentse's virtual assistant. How can I help you today?");
         });
 
         document.getElementById('close-chatbot').addEventListener('click', () => {
@@ -28,7 +29,7 @@ const chatbot = {
 
     generateResponse(message) {
         if (message.includes('hello') || message.includes('hi')) {
-            return "Hello! I'm Ofentse's virtual assistant. How can I help you today?";
+            return "I hope you're doing well! How can I assist you today?";
         } else if (message.includes('skills') || message.includes('experience')) {
             return "Ofentse is skilled in HTML, CSS, JavaScript, Java, C#, SQL, and more. Would you like specific details about any technology?";
         } else if (message.includes('contact')) {
@@ -45,8 +46,11 @@ const chatbot = {
             return "Disaster Alleviation Foundation Project is a web application that allows users to manage disaster-related donations and facilitate aid distribution securely. It was developed using C#, Azure SQL, and Azure DevOps.";
         } else if (message.includes('github')) {
             return "You can find Ofentse's GitHub profile at <a href='https://github.com/ofentse-sithole' target='_blank'>https://github.com/ofentse-sithole</a>.";
-        }else if (message.includes('string api') || message.includes('string')) {
-            return "String API Porject WebCore.API that takes a string as input, returns the reversed string, and checks if the input string is a palindrome, accessible via an endpoint.";
+        } else if (message.includes('string api') || message.includes('string')) {
+            return "String API Project WebCore.API that takes a string as input, returns the reversed string, and checks if the input string is a palindrome, accessible via an endpoint.";
+        }
+        else if (message.includes('list') || message.includes('please list projects')) {
+            return "A list of Ofentsee's projects: AviaryQuest, Medical Suite, HR Harmony System, Disaster Alleviation Foundation Project, and String API Project WebCore.API.";
         }
 
         return "I'd be happy to tell you more about Ofentse's work and experience. Feel free to ask about his skills, projects, github profile or contact information.";
