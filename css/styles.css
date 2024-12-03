@@ -486,6 +486,12 @@
     color: #666;
 }
 
+@media (max-width: 768px){
+    .skill p{
+        font-size: 17px;
+    }
+}
+
 /* Reset */
 * {
     margin: 0;
